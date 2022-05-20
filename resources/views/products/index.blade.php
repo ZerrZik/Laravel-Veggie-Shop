@@ -31,7 +31,11 @@
                                 <td>{{ $product->name }}</td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->orders->count() }}</td>
-                                <td></td>
+                                <td><a href="{{ route('products.edit', $product->id) }}"><button class="btn btn-primary">Edit</button></a>
+                                <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                                    <button class="btn btn-danger">Delete</button>
+                                    @csrf
+                                    </form></td>
                             </tr>
                             @endforeach
                         </tbody>
